@@ -249,6 +249,23 @@ class ComodoSSLService(object):
 			raiseError(result)
 			return False
 
+	def revoke(self, certId, revokeReason):
+		"""Request revocation of an SSL certificate previously issued by Comodo.
+		@certId Comodo CCM certificate id
+		@revokeReason Reason for revocation of this certificate (256 char max)
+		@return True if the revocation was successfully submitted.
+		"""
+		if len(revokeReason) > 256:
+			raise ValueError("Revocation reason string too long.  256 char max.")
+			return False
+		result = self.SOAP.revoke(certId, revokeReason)
+		# result = response.statusCode
+		if result == 0:
+			return True
+		else:
+			raiseError(result)
+			return False
+
 	def collect(self, certId):
 		"""Collect the SSL certificate from Comodo.
 		@certId Comodo CCM certificate id
