@@ -1,5 +1,9 @@
 #!/usr/bin/python
-"""Comodo SSL Certificate API wrapper class
+"""Comodo SSL Certificate API client class
+
+API documentation is hosted at:
+    https://www.incommon.org/cert/repository/InCommon_CM_SSL_Web_Service_API.pdf
+
 """
 __author__ = "Edward Delaporte <delaport@illinois.edu>, University of Illinois"
 __copyright__ = "Copyright (C) 2011-2013 University of Illinois Board of Trustees. All rights reserved."
